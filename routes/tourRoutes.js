@@ -6,7 +6,7 @@ const reviewRouter = require("./../routes/reviewRoutes");
 
 const router = express.Router();
 
-// tour routes
+// tour route
 
 // router.param("id",tourController.checkID);
 

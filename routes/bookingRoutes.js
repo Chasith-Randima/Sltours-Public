@@ -1,5 +1,7 @@
 /*
 
+
+// temp removing
 const express = require("express");
 const authController = require("./../constrollers/authCOntroller");
 const bookingController = require("./../constrollers/bookingController");

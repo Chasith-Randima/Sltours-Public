@@ -5,6 +5,8 @@ const reviewController = require('./../constrollers/reviewController');
 
 const router = express.Router({ mergeParams: true });
 
+// protected routes
+
 router.use(authController.protect);
 
 router
