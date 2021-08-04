@@ -1,5 +1,7 @@
 /*
 
+// removing temporarily
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const Tour = require("../models/tourModel");
 const Booking = require("../models/bookingModel");
