@@ -20,6 +20,8 @@ const viewRouter = require('./routes/viewRoutes');
 
 // MIDDLE WARES-----------------------------------____________________________________________
 
+//app started
+
 const app = express();
 
 app.set('view engine', 'pug');
