@@ -52,3 +52,10 @@ process.on('unhadledRejection', (err) => {
     process.exit(1);
   });
 });
+
+process.on('SIGTERM', () => {
+  console.log('SIGTERM Received shutting down gracefully....');
+  server.close(() => {
+    console.log('Process terminated....');
+  });
+});
