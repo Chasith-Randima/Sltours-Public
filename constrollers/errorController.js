@@ -80,7 +80,7 @@ const sendErrorProd = (err, req, res) => {
   console.error('ERROR', err);
   return res.status(500).json({
     staus: 'error',
-    message: 'Please try again later',
+    message: 'Please try again later.',
   });
 };
 
