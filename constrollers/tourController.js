@@ -162,7 +162,7 @@ exports.getToursWithin = catchAsync(async (req,res,next) => {
     const radius = unit === "mi" ? distance/3963.2 : distance/6378.1;
 
     if(!lat || !lng){
-       return next(new AppError( "Please provide  latitude longitude in the format lat lng",400));
+       return next(new AppError( "Please provide  latitude longitude in the format lat lng.",400));
     };
 
 
