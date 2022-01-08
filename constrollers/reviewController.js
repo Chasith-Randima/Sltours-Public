@@ -1,6 +1,6 @@
 const Tour = require("./../models/tourModel");
 //const APIFeatures = require("./../utils/apiFeatures");
-const catchAsync = require("./../utils/catchAsync");
+// const catchAsync = require("./../utils/catchAsync");
 //const AppError = require("./../utils/appError");
 const Review = require("./../models/reviewModel");
 const factory = require("./handlerFactory");

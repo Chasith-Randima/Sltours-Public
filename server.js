@@ -16,7 +16,7 @@ const app = require('./app');
 //console.log(process.env);
 
 mongoose
-  .connect(process.env.DATABASE_LOCAL, {
+  .connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useCreateIndex: true,
     //useFindModify:false,

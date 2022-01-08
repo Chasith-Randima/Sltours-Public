@@ -1,38 +1,36 @@
 const AppError = require('../utils/appError');
 const factory = require('./handlerFactory');
 const Tour = require('../models/tourModel');
-const catchAsync = require('../utils/catchAsync');
+// const catchAsync = require('../utils/catchAsync');
 
-const handleCastErrorDB = catchAsync((err) => {
+const handleCastErrorDB = (err) => {
   const message = `Invalid ${err.path}:${err.value}`;
   return new AppError(message, 400);
-});
+};
 
-const handleDuplicateFieldsDB = catchAsync((err) => {
+const handleDuplicateFieldsDB = (err) => {
   const value = err.errmsg.match(/([""])(\\?.)*?\1/)[0];
   console.log(value);
 
   const message = `Duplicate field value:${value}. Please use another value `;
 
   return new AppError(message, 400);
-});
+};
 
-const handleValidationErrorDB = catchAsync((err) => {
+const handleValidationErrorDB = (err) => {
   const errors = Object.values(err.errors).map((el) => el.message);
 
   const message = `Invalid inputdata.${errors.join('. ')}`;
   return new AppError(message, 400);
-});
+};
 
-const handleJWTError = catchAsync(
-  () => new AppError('Invalid token , please log in again', 401)
-);
+const handleJWTError = () =>
+  new AppError('Invalid token , please log in again', 401);
 
-const handleJWTExpiredError = catchAsync(
-  () => new AppError('your token has expired,please log in again', 401)
-);
+const handleJWTExpiredError = () =>
+  new AppError('your token has expired,please log in again', 401);
 
-const sendErrorDev = catchAsync((err, req, res) => {
+const sendErrorDev = (err, req, res) => {
   console.log(req.originalUrl);
 
   if (req.originalUrl.startsWith('/api')) {
@@ -47,9 +45,9 @@ const sendErrorDev = catchAsync((err, req, res) => {
     title: 'Something went Wrong...!',
     msg: err.message,
   });
-});
+};
 
-const sendErrorProd = catchAsync((err, req, res) => {
+const sendErrorProd = (err, req, res) => {
   if (req.originalUrl.startsWith('/api')) {
     if (err.isOperational) {
       return res.status(err.statusCode).json({
@@ -77,9 +75,9 @@ const sendErrorProd = catchAsync((err, req, res) => {
     staus: 'error',
     message: 'Please try again later',
   });
-});
+};
 
-module.exports = catchAsync((err, req, res, next) => {
+module.exports = (err, req, res, next) => {
   //console.log(err.stack);
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
@@ -100,4 +98,4 @@ module.exports = catchAsync((err, req, res, next) => {
 
     sendErrorProd(error, req, res);
   }
-});
+};
