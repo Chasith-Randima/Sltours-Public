@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
+<<<<<<< HEAD
     "dev": "nodemon server.js",
+=======
+>>>>>>> 44df138c9a7db0e2bc7fd6b01495652db288929e
     "start:prod": "NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
@@ -20,6 +23,7 @@
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "detect-libc": "^1.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-mongo-sanitize": "^2.0.0",
@@ -34,7 +38,7 @@
     "nodemailer": "^6.4.6",
     "parcel-bundler": "^1.12.4",
     "pug": "^3.0.0",
-    "sharp": "^0.25.4",
+    "sharp": "^0.29.3",
     "slugify": "^1.4.0",
     "stripe": "^8.64.0",
     "validator": "^13.0.0",

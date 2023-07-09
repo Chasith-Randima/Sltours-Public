@@ -117,9 +117,15 @@ const tourSchema = new mongoose.Schema(
   }
 );
 
+<<<<<<< HEAD
 tourSchema.index({ price: 1, ratingsAverage: -1 });
 tourSchema.index({ slug: 1 });
 tourSchema.index({ startLocation: '2dsphere' });
+=======
+// tourSchema.index({ price: 1, ratingsAverage: -1 });
+// tourSchema.index({ slug: 1 });
+// tourSchema.index({ startLocation: '2dsphere' });
+>>>>>>> 44df138c9a7db0e2bc7fd6b01495652db288929e
 
 tourSchema.virtual('durationWeeks').get(function () {
   return this.duration / 7;
@@ -131,7 +137,11 @@ tourSchema.virtual('reviews', {
   localField: '_id',
 });
 
+<<<<<<< HEAD
 tourSchema.pre('save', function () {
+=======
+tourSchema.pre('save', function (next) {
+>>>>>>> 44df138c9a7db0e2bc7fd6b01495652db288929e
   this.slug = slugify(this.name, { lower: true });
   next();
 });
@@ -169,11 +179,18 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
+<<<<<<< HEAD
 // tourSchema.post(/^find/,function(docs,next){
 
 //     console.log(`query got ${Date.now()-this.start}`);
 //     next();
 // });
+=======
+tourSchema.post(/^find/, function (docs, next) {
+  console.log(`query got ${Date.now() - this.start}`);
+  next();
+});
+>>>>>>> 44df138c9a7db0e2bc7fd6b01495652db288929e
 
 // tourSchema.pre("aggregate",function(next){
 

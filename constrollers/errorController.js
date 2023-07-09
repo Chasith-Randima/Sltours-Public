@@ -1,6 +1,10 @@
 const AppError = require('../utils/appError');
 const factory = require('./handlerFactory');
 const Tour = require('../models/tourModel');
+<<<<<<< HEAD
+=======
+// const catchAsync = require('../utils/catchAsync');
+>>>>>>> 44df138c9a7db0e2bc7fd6b01495652db288929e
 
 const handleCastErrorDB = (err) => {
   const message = `Invalid ${err.path}:${err.value}`;
@@ -55,7 +59,11 @@ const sendErrorProd = (err, req, res) => {
       });
     }
 
+<<<<<<< HEAD
     // .error("ERROR",err);
+=======
+    console.error('ERROR', err);
+>>>>>>> 44df138c9a7db0e2bc7fd6b01495652db288929e
     return res.status(500).json({
       staus: 'error',
       message: 'something went very wrong!',
